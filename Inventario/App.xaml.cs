@@ -1,17 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Inventory.Core;
+using MvvmCross.Core;
+using MvvmCross.Platforms.Wpf.Core;
+using MvvmCross.Platforms.Wpf.Views;
 using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
-namespace Inventario
+namespace Inventory.WPF
 {
     /// <summary>
     /// Lógica de interacción para App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : MvxApplication
     {
+        public App()
+        {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en"); 
+        }
+        protected override void RegisterSetup()
+        {
+            this.RegisterSetupType<MvxWpfSetup<Core.App>>();
+        }
     }
 }

@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventario", "Inventario\Inventario.csproj", "{85736231-4443-472E-B18B-C514DD5E75D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.WPF", "Inventario\Inventory.WPF.csproj", "{85736231-4443-472E-B18B-C514DD5E75D5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Migration", "Migration\Migration.csproj", "{996D5863-650C-49EC-AE30-4CC923ED45DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Core", "Inv.Core\Inventory.Core.csproj", "{D1CD88D2-1FD0-4D82-ABD0-FF00BFC0969D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{996D5863-650C-49EC-AE30-4CC923ED45DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{996D5863-650C-49EC-AE30-4CC923ED45DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{996D5863-650C-49EC-AE30-4CC923ED45DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1CD88D2-1FD0-4D82-ABD0-FF00BFC0969D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1CD88D2-1FD0-4D82-ABD0-FF00BFC0969D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1CD88D2-1FD0-4D82-ABD0-FF00BFC0969D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1CD88D2-1FD0-4D82-ABD0-FF00BFC0969D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

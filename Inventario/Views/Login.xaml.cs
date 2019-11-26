@@ -1,40 +1,33 @@
-﻿using BCrypt.Net;
-using Migration;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MvvmCross.Platforms.Wpf.Views;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Globalization;
+using System.Configuration;
+using System.Threading;
+using MvvmCross.Binding.BindingContext;
+using MvvmCross.Localization;
+using System.Windows.Controls;
+using System.Xml.Linq;
+using System.Linq;
+using System;
+using System.Windows.Markup;
 
-namespace Inventario
+namespace Inventory.WPF.Views
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para TipView.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class Login : MvxWpfView
     {
-        protected CoreContext ctx = new CoreContext();
-        public string strArr { get; set; }
-
         public Login()
         {
-            InitializeComponent();
             DataContext = this;
+            InitializeComponent();
         }
 
-        void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            //DragMove();
         }
         void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -43,9 +36,25 @@ namespace Inventario
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var user = ctx.Users.Where(c => c.NickName == "Erick").First();
-            var pass = txtPassword.Password;
-            //strArr = BCrypt.Net.BCrypt.Verify(pass, user.Password);
+
+        }
+
+        private void CBLang_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                CultureInfo.DefaultThreadCurrentCulture = new CultureInfo(CBLang.SelectedValue.ToString());
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(CBLang.SelectedValue.ToString());
+            }
+            catch(Exception)
+            {
+                CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+            }
+            LanguageProperty.OverrideMetadata(
+                typeof(FrameworkElement), 
+                new FrameworkPropertyMetadata(XmlLanguage.GetLanguage(CultureInfo.CurrentCulture.IetfLanguageTag))
+            );
         }
     }
 }
